@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Generador de Contratos</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f3f4f6;
+      }
+
+      .contenedor {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+
+      .campo {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 15px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 15px;
+        transition: 0.2s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+        background: #2563eb;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      .subtitulo {
+        color: #6b7280;
+        margin-bottom: 30px;
+      }
+
+      .cerrar {
+        background: #dc2626;
+      }
+
+      .cerrar:hover {
+        background: #b91c1c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <h1>Generador de Contratos</h1>
+
+      <div class="subtitulo">
+        Complete los campos y genere el contrato automáticamente.
+      </div>
+
+      <form action="/generar" method="POST">
+        {% for variable, nombre in variables.items() %}
+
+        <label>{{ nombre }}</label>
+
+        <input type="text" name="{{ variable }}" />
+
+        <br /><br />
+
+        {% endfor %}
+
+        <button type="submit">Generar documento</button>
+      </form>
+
+      <br />
+
+      <button class="cerrar" type="button" onclick="cerrarAplicacion()">
+        Cerrar aplicación
+      </button>
+    </div>
+
+    <script>
+      async function cerrarAplicacion() {
+        document.body.innerHTML = `
+                <div style="
+                    font-family: Arial;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background: #f3f4f6;
+                ">
+
+                    <div style="
+                        background: white;
+                        padding: 40px;
+                        border-radius: 16px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                        text-align: center;
+                    ">
+
+                        <h1>
+                            Aplicación cerrada
+                        </h1>
+
+                        <p>
+                            Ya puede cerrar esta pestaña.
+                        </p>
+
+                    </div>
+
+                </div>
+            `;
+
+        await fetch("/cerrar", {
+          method: "POST",
+        });
+      }
+    </script>
+  </body>
+</html>
