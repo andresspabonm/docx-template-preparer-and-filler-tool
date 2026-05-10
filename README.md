@@ -2,6 +2,8 @@
 
 Esta es una herramienta para hacer que rellenar plantillas de Word sea más fácil y amigable.
 
+---
+
 ## Características
 
 - Conversión automática de placeholders:
@@ -40,6 +42,8 @@ Esta es una herramienta para hacer que rellenar plantillas de Word sea más fác
 
 ```bash
 pip install -r requirements.txt
+```
+
 ---
 
 ## Uso
@@ -56,11 +60,15 @@ python preparador_plantilla/src/preparador_plantilla.py
 python generador_docx/src/generador_docx.py
 ```
 
+---
+
 ## Limitaciones conocidas
 
 - Los textboxes de Word no son procesados
 - Algunos elementos avanzados de OpenXML pueden no ser compatibles
 - El sistema usa el estilo del primer run al reconstruir variables fragmentadas
+
+---
 
 ## Tecnologías
 
