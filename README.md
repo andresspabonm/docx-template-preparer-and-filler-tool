@@ -22,6 +22,8 @@ Esta es una herramienta para hacer que rellenar plantillas de Word sea más fác
 
 - Exportación de documentos personalizados
 
+---
+
 ## Flujo de trabajo
 
 1. Crear una plantilla DOCX usando placeholders:
@@ -37,6 +39,8 @@ Esta es una herramienta para hacer que rellenar plantillas de Word sea más fác
 4. Ejecutar el generador de contratos
 
 5. Completar el formulario y exportar el documento final
+
+---
 
 ## Instalación
 
